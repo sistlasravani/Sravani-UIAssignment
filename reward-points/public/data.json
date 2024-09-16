@@ -1,0 +1,22 @@
+[
+    {
+        "customer": "1",
+        "date": "2024-06-15",
+        "amount": 100
+    },
+    {
+        "customer": "2",
+        "date": "2024-07-20",
+        "amount": 200
+    },
+     {
+        "customer": "1",
+        "date": "2024-06-21",
+        "amount": 180
+    },
+   {
+        "customer": "3",
+        "date": "2024-09-10",
+        "amount": 400
+    }
+]
