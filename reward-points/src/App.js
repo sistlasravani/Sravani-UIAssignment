@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTranscations } from './service/dataCall';
+import { fetchTransactions } from './service/dataCall';
 import CustomerRewards from './components/CustomerRewards';
 
 const App = () => {
-  /*State transcations to hold fetched transcations data, 
+  /*State transactions to hold fetched transactions data, 
     loading state to handle status while data is being fetched,
     error state to handle any error that may occur while data is being fetched. 
   */
@@ -13,21 +13,22 @@ const App = () => {
 
   /* useEffect hook to handle data fetching when component mounts*/
   useEffect(() => {
-    const getTranscations = async () => {
+    const getTransactions = async () => {
       try{
-        //Fetch the transcations data
-        const data = await fetchTranscations(); 
+        //Fetch the transactions data
+        const data = await fetchTransactions(); 
         //update state with fetched data
         setTransactions(data)
-        //set loading to false once the data is fetched
-        setLoading(false)
       }catch(error) {
         //Handle error while fetching the data
-        setError("Unable to fetch the transcations list")
+        setError("Unable to fetch the transactions list")
+      } finally {
+        //set loading to false in both success and error cases.
+        setLoading(false) 
       }
     };
     //Call the function to fetch the data 
-    getTranscations();
+    getTransactions();
   }, [])
 
   if(loading){
@@ -42,7 +43,7 @@ const App = () => {
   return (
     <>
       <h1>Customer Reward Points</h1>
-      <CustomerRewards transcations={transactions}/>
+      <CustomerRewards transactions={transactions}/>
     </>
   )
 }

@@ -2,12 +2,12 @@
     {
         "customer": "1",
         "date": "2024-06-15",
-        "amount": 100
+        "amount": 70
     },
     {
         "customer": "2",
         "date": "2024-07-20",
-        "amount": 200
+        "amount": 120
     },
      {
         "customer": "1",
