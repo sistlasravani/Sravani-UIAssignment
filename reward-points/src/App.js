@@ -13,24 +13,10 @@ const App = () => {
 
   /* useEffect hook to handle data fetching when component mounts*/
   useEffect(() => {
-    const getTransactions = async () => {
-      try{
-        //Fetch the transactions data
-        const data = await fetchTransactions(); 
-        //update state with fetched data
-        setTransactions(data)
-      }catch(error) {
-        //Handle error while fetching the data
-        setError("Unable to fetch the transactions list")
-      } finally {
-        //set loading to false in both success and error cases.
-        setLoading(false) 
-      }
-    };
-    //Call the function to fetch the data 
-    getTransactions();
-  }, [])
-
+    // Directly call fetchTransactions inside useEffect
+    fetchTransactions(setTransactions, setError, setLoading);
+  }, []); 
+   
   if(loading){
     return <div>loading....</div>
   }
